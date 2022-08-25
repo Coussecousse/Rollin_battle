@@ -1,13 +1,101 @@
 :root {
-    --color-200: #F9F5EB;
-    --color-300: #EAE3D2;
+    --color-100: #F9F5EB;
+    --color-200: #EAE3D2;
+    --color-300: #bbcce6;
     --color-400: #607EAA;
     --color-500: #1C3879;
 
     --ff : 'Lato', sans-serif;
-    --fs-300 : 300;
-    --fs-400 : 400;
-    --fs-500 : 700;
-    --fs-600 : 900;
+    --fw-300 : 300;
+    --fw-400 : 400;
+    --fw-500 : 700;
+    --fw-600 : 900;
 }
 
+/* GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: var(--ff);
+    font-weight: var(--fw-400);
+    font-size: 1rem;
+    text-align: center;
+}
+body {
+    width: 100vw;
+    background: var(--color-100);
+}
+h1, h2, h3 {
+    color: var(--color-500);
+    font-weight: var(--fw-500);
+    line-height: 2.5rem;
+}
+h2 {
+    font-size: 2rem;
+} 
+h2 > span {
+    font-size: 2.2rem;
+}
+span {
+    color: var(--color-400);
+    font-weight: var(--fw-600);
+}
+
+/* HEADER */
+header{
+    height: 100vh;
+    width: 100%;
+    padding: 1rem;
+    background: var(--color-200);
+    /* position: absolute;
+    transform: translateY(-100%); */
+}
+.header__container {
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    line-height: 1.325rem;
+}
+.name-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.name-container > * {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+input {
+    margin: 10px auto;
+    height: 40px;
+    width: 90%;
+    max-width: 300px;
+    background-color: var(--color-200);
+    border: 2px solid var(--color-400);
+    border-radius: 5px;
+}
+input:focus, input:active {
+    outline: none;
+    border: 2px solid var(--color-500);
+}
+.play {
+    width: 150px;
+    padding: .8rem;
+    margin: 0 auto;
+    color: var(--color-300);
+    background-color:var(--color-500);
+    font-weight: var(--fw-600);
+    font: 1rem;
+    letter-spacing: .1rem;
+    border: none;
+    border-radius: 5px;
+}
+.play:hover, .play:active {
+    color: var(--color-500);
+    background-color: var(--color-300);
+}

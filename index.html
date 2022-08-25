@@ -12,20 +12,22 @@
     <title>Rollin' Battle!</title>
 </head>
 <body>
-    <header class="col-12 col-md-8 col-lg-6">
-        <h2>Bienvenue sur <span>Roll</span>in' Battle</h2>
-        <p>La partie se joue en <span>1 contre 1</span>. Le but est de lancer les dés et d'atteindre le score <span>GLOBAL</span> de 100 le premier. À chaque tour, vous obtenez un <span>SCORE</span> de dés que vous pouvez décider de <span>ROLL</span> à nouveau autant de fois que vous voulez ou de <span>HOLD</span>. Dans ce cas là, le <span>SCORE</span> sera alors ajouté à votre score <span>GLOBAL</span>. Mais attention ! Si votre dé tombe sur <span>1</span>, votre tour se finit et ce sera à votre adversaire de jouer.</p>
-        <div>
-            <div class="col-12 col-md-6">
-                <label for="player1">Nom du joueur 1</label>
-                <input type="text" id="player1" name="player1" placeholder="Joueur 1 (3 à 10 caractères)" minlength="3" maxlength="10">
+    <header class="col-12">
+        <div class="header__container col-12 col-md-8 col-lg-6">
+            <h2>Bienvenue sur <span>Roll</span>in' Battle</h2>
+            <p>La partie se joue en <span>1 contre 1</span>. Le but est de lancer les dés et d'atteindre le score <span>GLOBAL</span> de <span>100</span> le premier. <br>À chaque tour, vous obtenez un <span>SCORE</span> de dés que vous pouvez décider de <span>ROLL</span> à nouveau autant de fois que vous voulez, ou de <span>HOLD</span>. Dans ce cas là, le <span>SCORE</span> sera alors ajouté à votre score <span>GLOBAL</span>. <br> Mais attention ! Si votre dé tombe sur <span>1</span>, votre tour se finit et ce sera à votre adversaire de jouer.</p>
+            <div class="name-container col-12">
+                <div class="col-12 col-md-6 player-name">
+                    <label for="player1">Nom du <span>premier joueur </span>:</label>
+                    <input type="text" id="player1" name="player1" placeholder="Joueur 1 (10 caractères max)" maxlength="10">
+                </div>
+                <div class="col-12 col-md-6 player-name">
+                    <label for="player2">Nom du <span>deuxième joueur </span>:</label>
+                    <input type="text" id="player2" name="player2" placeholder="Joueur 2 (10 caractères max)" maxlength="10">
+                </div>
             </div>
-            <div class="col-12 col-md-6">
-                <label for="player2">Nom du joueur 2</label>
-                <input type="text" id="player2" name="player2" placeholder="Joueur 2 (3 à 10 caractères)" minlength="3" maxlength="10">
-            </div>
+            <button type="button"class="play" id="button-play">Jouer</button>
         </div>
-        <button type="button"class="">Jouer</button>
     </header>
     <main>
         <h1><span>Roll</span>in' Battle</h1>
@@ -37,21 +39,21 @@
                 <button><i class="fa-solid fa-hand-holding-hand"></i>HOLD</button>
             </div>
         </section>
-        <section id="player1-container" class="col-12 col-md" style="border: 1px solid red;">
+        <section id="player1-container" class="col-6 col-md" style="border: 1px solid red;">
             <h3 class="col-12">Joueur 1</h3>
-            <div id="score-container-p1">
+            <div id="score-container-p1" class="score-container">
                 <p>0</p>
             </div>
-            <div id="global-container-p1">
+            <div id="global-container-p1" class="score-container">
                 <p>0</p>
             </div>
         </section>
-        <section id="player2-container" class="col-12" style="border: 1px solid blue;">
+        <section id="player2-container" class="col-6" style="border: 1px solid blue;">
             <h3>Joueur 2</h3>
-            <div id="score-container-p2">
+            <div id="score-container-p2" class="score-container">
                 <p>0</p>
             </div>
-            <div id="global-container-p2">
+            <div id="global-container-p2" class="score-container">
                 <p>0</p>
             </div>
         </section>
