@@ -13,10 +13,10 @@
 </head>
 <body>
     <header class="col-12">
-        <div class="header__container col-12 col-md-8 col-lg-6">
+        <div class="header__container col-12 col-md-8 col-lg-6 d-flex flex-column justify-content-center">
             <h2>Bienvenue sur <span>Roll</span>in' Battle</h2>
             <p>La partie se joue en <span>1 contre 1</span>. Le but est de lancer les dés et d'atteindre le score <span>GLOBAL</span> de <span>100</span> le premier. <br>À chaque tour, vous obtenez un <span>SCORE</span> de dés que vous pouvez décider de <span>ROLL</span> à nouveau autant de fois que vous voulez, ou de <span>HOLD</span>. Dans ce cas là, le <span>SCORE</span> sera alors ajouté à votre score <span>GLOBAL</span>. <br> Mais attention ! Si votre dé tombe sur <span>1</span>, votre tour se finit et ce sera à votre adversaire de jouer.</p>
-            <div class="name-container col-12">
+            <div class="name-container col-12 d-flex flex-wrap">
                 <div class="col-12 col-md-6 player-name">
                     <label for="player1">Nom du <span>premier joueur </span>:</label>
                     <input type="text" id="player1" name="player1" placeholder="Joueur 1 (10 caractères max)" maxlength="10">
@@ -32,7 +32,7 @@
     <main class="d-flex flex-wrap">
         <h1 class="col-12"><span>Roll</span>in' Battle</h1>
         <section id="game-container" class="col-12 col-md-4 d-flex flex-column justify-content-between order-md-2 order-1">
-            <button type="button" id="play-again" class="action-button d-flex align-items-center justify-content-center"><i class="fa-solid fa-dice"></i>Rejouer</button>
+            <button type="button" class="action-button d-flex align-items-center justify-content-center"><i class="fa-solid fa-dice"></i>Rejouer</button>
             <div id="dice-container"><i class="fa-solid fa-dice-five"></i></div>
             <div class="options d-flex flex-md-column flex-lg-row">
                 <button type="button" class="action-button col-5 d-flex align-items-center justify-content-center justify-content-md-start justify-content-lg-center" id="roll"><i class="fa-solid fa-rotate"></i></i>ROLL</button>
@@ -61,8 +61,18 @@
                 <p class="score">0</p>
             </div>
         </section>
-
     </main>
+    <footer>
+        <div class="winner-screen d-flex flex-column justify-content-center ">
+            <p id="winner"><span>Joueur 1</span></p>
+            <p>a gagné !</p>
+            <button type="button"class="action-button d-flex align-items-center justify-content-center play-again"><i class="fa-solid fa-dice"></i>Rejouer</button>
+        </div>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+    </footer>
     <script src="./bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/4ba6d56c15.js" crossorigin="anonymous"></script>
     <script src="main.js"></script>
