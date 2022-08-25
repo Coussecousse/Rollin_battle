@@ -13,22 +13,51 @@
 </head>
 <body>
     <header class="col-12 col-md-8 col-lg-6">
-        <h1>Bienvenue sur <span>Roll</span>in' Battle</h1>
+        <h2>Bienvenue sur <span>Roll</span>in' Battle</h2>
         <p>La partie se joue en <span>1 contre 1</span>. Le but est de lancer les dés et d'atteindre le score <span>GLOBAL</span> de 100 le premier. À chaque tour, vous obtenez un <span>SCORE</span> de dés que vous pouvez décider de <span>ROLL</span> à nouveau autant de fois que vous voulez ou de <span>HOLD</span>. Dans ce cas là, le <span>SCORE</span> sera alors ajouté à votre score <span>GLOBAL</span>. Mais attention ! Si votre dé tombe sur <span>1</span>, votre tour se finit et ce sera à votre adversaire de jouer.</p>
         <div>
             <div class="col-12 col-md-6">
-                <label for="joueur1">Nom du joueur 1</label>
-                <input type="text" id="joueur1" name="joueur1" placeholder="Joueur 1 (3 à 10 caractères)">
+                <label for="player1">Nom du joueur 1</label>
+                <input type="text" id="player1" name="player1" placeholder="Joueur 1 (3 à 10 caractères)">
             </div>
             <div class="col-12 col-md-6">
-                <label for="joueur2">Nom du joueur 2</label>
-                <input type="text" id="joueur2" name="joueur2" placeholder="Joueur 2 (3 à 10 caractères)">
+                <label for="player2">Nom du joueur 2</label>
+                <input type="text" id="player2" name="player2" placeholder="Joueur 2 (3 à 10 caractères)">
             </div>
         </div>
         <button type="button"class="">Jouer</button>
     </header>
-    <main></main>
+    <main>
+        <h1><span>Roll</span>in' Battle</h1>
+        <button type="button"><i class="fa-solid fa-dice"></i>Rejouer</button>
+        <section id="game-container" class="col-12" style="border: solid;">
+            <div id="dice-container"><i class="fa-solid fa-dice-five"></i></div>
+            <div class="options">
+                <button><i class="fa-solid fa-rotate"></i></i>ROLL</button>
+                <button><i class="fa-solid fa-hand-holding-hand"></i>HOLD</button>
+            </div>
+        </section>
+        <section id="player1-container" class="col-12 col-md" style="border: 1px solid red;">
+            <h3 class="col-12">Joueur 1</h3>
+            <div id="score-container-p1">
+                <p>0</p>
+            </div>
+            <div id="global-container-p1">
+                <p>0</p>
+            </div>
+        </section>
+        <section id="player2-container" class="col-12" style="border: 1px solid blue;">
+            <h3>Joueur 2</h3>
+            <div id="score-container-p2">
+                <p>0</p>
+            </div>
+            <div id="global-container-p2">
+                <p>0</p>
+            </div>
+        </section>
+    </main>
     <script src="./bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/4ba6d56c15.js" crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </body>
 </html>
