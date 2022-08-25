@@ -1,0 +1,13 @@
+:root {
+    --color-200: #F9F5EB;
+    --color-300: #EAE3D2;
+    --color-400: #607EAA;
+    --color-500: #1C3879;
+
+    --ff : 'Lato', sans-serif;
+    --fs-300 : 300;
+    --fs-400 : 400;
+    --fs-500 : 700;
+    --fs-600 : 900;
+    
+}
