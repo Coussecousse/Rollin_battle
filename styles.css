@@ -66,15 +66,18 @@ button:hover {
 }
 
 /* HEADER */
-header{
+header {
     height: 100vh;
     width: 100%;
     padding: 1rem;
     background: var(--color-200);
     position: absolute;
     z-index: 1;
-    transform: translateY(-100%);
     transition: .6s ease-in;
+
+}
+.header-up {
+    transform: translateY(-100%);
 }
 .header__container {
     margin: 0 auto;
@@ -160,6 +163,22 @@ main {
     padding-right: 0;
     animation: question 3.5s linear infinite;
 }
+#dice-container {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+.dice-animate {
+    animation: spin .6s ease-in-out;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(-360deg) rotateX(-360deg);
+    }
+}
+
 @keyframes question {
     20%{
         opacity: 0;
@@ -247,7 +266,7 @@ main {
 }
 /* FOOTER */
 footer {
-    transform: scale(0);
+    display: none;
     margin: 0 auto;
     color: #1C3879;
     position: absolute;
@@ -255,7 +274,7 @@ footer {
     left: 50%;
     transform: translate(-50%,-50%);
     z-index: 1;
-    overflow-x: visible;
+    overflow: visible;
 }
 .winner-screen{
     width: clamp(250px, 50vw, 300px);

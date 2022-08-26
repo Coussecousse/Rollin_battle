@@ -26,14 +26,14 @@
                     <input type="text" id="player2" name="player2" placeholder="Joueur 2 (10 caractères max)" maxlength="10">
                 </div>
             </div>
-            <button type="button"class="play" id="button-play">Jouer</button>
+            <button type="button" class="play" id="play-button">Jouer</button>
         </div>
     </header>
     <main class="d-flex flex-wrap">
         <h1 class="col-12"><span>Roll</span>in' Battle</h1>
         <section id="game-container" class="col-12 col-md-4 d-flex flex-column justify-content-between order-md-2 order-1">
-            <button type="button" class="action-button d-flex align-items-center justify-content-center"><i class="fa-solid fa-dice"></i>Rejouer</button>
-            <div id="dice-container"><i class="fa-solid fa-dice-five"></i></div>
+            <button type="button" class="action-button d-flex align-items-center justify-content-center play-again"><i class="fa-solid fa-dice"></i>Rejouer</button>
+            <div id="dice-container" class=""><i class="fa-solid fa-dice-five"></i></div>
             <div class="options d-flex flex-md-column flex-lg-row">
                 <button type="button" class="action-button col-5 d-flex align-items-center justify-content-center justify-content-md-start justify-content-lg-center" id="roll"><i class="fa-solid fa-rotate"></i></i>ROLL</button>
                 <button type="button" class="action-button col-5 d-flex align-items-center justify-content-center justify-content-md-start justify-content-lg-center" id="hold"><i class="fa-solid fa-hand-holding-hand"></i>HOLD<i class="fa-solid fa-question"></i></button>
@@ -42,23 +42,23 @@
         <section id="player1-container" class="player-container col-6 col-md-4 order-md-1 order-2 d-flex flex-column justify-content-between">
             <div id="global-container-p1" class="global-container">
                 <p class="tour" id="tour-p1">Au tour de...</p>
-                <h3 class="col-12">Joueur 1</h3>
-                <p class="global">0</p>
+                <h3 id="player-name1"></h3>
+                <p class="global" id="p1-global">0</p>
             </div>
             <div id="score-container-p1" class="score-container">
                 <p>Score :</p>
-                <p class="score">0</p>
+                <p class="score" id="p1-score">0</p>
             </div>
         </section>
         <section id="player2-container" class="player-container col-6 col-md-4 order-md-3 order-3 d-flex flex-column justify-content-between">
             <div id="global-container-p2" class="global-container">
                 <p class="tour" id="tour-p2">Au tour de...</p>
-                <h3>Joueur 2</h3>
-                <p class="global">0</p>
+                <h3 id="player-name2"></h3>
+                <p class="global" id="p2-global">0</p>
             </div>
             <div id="score-container-p2" class="score-container">
                 <p>Score :</p>
-                <p class="score">0</p>
+                <p class="score" id="p2-score">0</p>
             </div>
         </section>
     </main>
@@ -72,6 +72,13 @@
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+
     </footer>
     <script src="./bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/4ba6d56c15.js" crossorigin="anonymous"></script>
