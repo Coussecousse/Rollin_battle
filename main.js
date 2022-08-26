@@ -180,5 +180,4 @@ function starWinner(){
         footer.children[i].style.transform = 'translate('+ min + 'px, -100px)';
         min += rotate;
     }
-    
 }
