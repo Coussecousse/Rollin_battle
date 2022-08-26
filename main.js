@@ -7,10 +7,9 @@ class Player {
         this.tour               = tour;
         this.score              = score;
         this.globalScoreElement = globalScoreElement
-        this.globalScore        = 0;
+        this.globalScore        = 90;
         this.isHePlaying        = isHePlaying
     }
-    
     changeName(setName){
         this.name.textContent   = setName;
     }
@@ -67,7 +66,6 @@ class Player {
         currentPlayer = (Player1.isHePlaying ? Player1 : Player2);
         opponent      = (!Player1.isHePlaying ? Player1 : Player2);
     }
-
     weHaveAWinner(){
         const winnerScreen = document.querySelector('.winner-screen');
         winnerScreen.classList.add('active-winner-screen');
@@ -99,6 +97,20 @@ const Player2      = new Player(
     false
 )
 
+const gameContainer = document.querySelector('#game-container');
+
+// -> GAME JS : 
+let player1Name     = '';
+let player2Name     = '';
+const winnerScore   = 100;
+let currentScore    = 0;
+let currentDice     = 'fa-dice-five';
+let newDice;
+let canIRoll = true;
+let currentPlayer = Player1;
+let opponent = Player2; 
+
+
 // Fonctions : 
 playButton.addEventListener('click', () => {
 
@@ -120,6 +132,7 @@ playButton.addEventListener('click', () => {
 })
 
 function gameBeginning(){
+    
     gameContainer.addEventListener('click', e => {
 
         const playAgainButton = gameContainer.querySelector('.play-again');
@@ -168,6 +181,7 @@ function animeDice(score, dice){
     }
     dice.classList.replace(currentDice, newDice);
 }
+
 function starWinner(){
     const footer = document.querySelector('footer');
     footer.style.display = 'block';
