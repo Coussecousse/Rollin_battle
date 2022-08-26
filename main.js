@@ -67,6 +67,12 @@ class Player {
         currentPlayer = (Player1.isHePlaying ? Player1 : Player2);
         opponent      = (!Player1.isHePlaying ? Player1 : Player2);
     }
+
+    weHaveAWinner(){
+        const winnerScreen = document.querySelector('.winner-screen');
+        winnerScreen.classList.add('active-winner-screen');
+        starWinner();
+    }
 }
 
 // -> HEADER :
@@ -161,4 +167,18 @@ function animeDice(score, dice){
             score = Math.floor(Math.random() * (7 - 1) + 1);
     }
     dice.classList.replace(currentDice, newDice);
+}
+function starWinner(){
+    const footer = document.querySelector('footer');
+    footer.style.display = 'block';
+    let max = 180;
+    let min = 0;
+    let rotate = max/10;
+
+    for (let i = 1; i < footer.children.length; i++){
+        footer.children[i].style.opacity = 1;
+        footer.children[i].style.transform = 'translate('+ min + 'px, -100px)';
+        min += rotate;
+    }
+    
 }
