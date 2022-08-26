@@ -52,9 +52,10 @@ class Player {
 
         if (this.globalScore >= winnerScore){
             this.weHaveAWinner();
+        } else {
+            this.nextRound(Opponent);
         }
 
-        this.nextRound(Opponent);
     }
     nextRound(Opponent){
         this.isHePlaying     = false;
@@ -67,9 +68,13 @@ class Player {
         opponent      = (!Player1.isHePlaying ? Player1 : Player2);
     }
     weHaveAWinner(){
+        canIRoll = false;
+        const footer = document.querySelector('footer')
         const winnerScreen = document.querySelector('.winner-screen');
+        footer.style.visibility = 'visible';
         winnerScreen.classList.add('active-winner-screen');
-        starWinner();
+        
+        starWinner(footer);
     }
 }
 
@@ -182,16 +187,25 @@ function animeDice(score, dice){
     dice.classList.replace(currentDice, newDice);
 }
 
-function starWinner(){
-    const footer = document.querySelector('footer');
-    footer.style.display = 'block';
-    let max = 180;
-    let min = 0;
-    let rotate = max/10;
+function starWinner(footer){
+    
+    const rotateX = 380/9;
+    let minX      = -200;
+    let minY      = 20;
+    let rotateY   = 80/5;
+
+
+
 
     for (let i = 1; i < footer.children.length; i++){
-        footer.children[i].style.opacity = 1;
-        footer.children[i].style.transform = 'translate('+ min + 'px, -100px)';
-        min += rotate;
+        document.documentElement.style.setProperty('--star-X'+ i, minX + 'px');
+        document.documentElement.style.setProperty('--star-Y'+ i, '-' + minY + 'px');
+        footer.children[i].classList.add('star-' + i );
+        minX += rotateX;
+        if (minY == 100){
+            minY -= rotateY;
+        } else {
+            minY += rotateY;
+        }
     }
 }
