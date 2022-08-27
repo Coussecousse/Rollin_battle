@@ -69,20 +69,19 @@ class Player {
     }
     weHaveAWinner(){
         canIRoll = false;
-        const footer = document.querySelector('footer')
-        const winnerScreen = document.querySelector('.winner-screen');
         footer.style.visibility = 'visible';
         winnerScreen.classList.add('active-winner-screen');
         
-        starWinner(footer);
-    }
+        // starWinner(footer);
+        confetti()
+    };
 }
 
 // -> HEADER :
-const header       = document.querySelector('header')
-const playButton   = document.querySelector('#play-button');
-const inputPlayer1 = document.querySelector('#player1');
-const inputPlayer2 = document.querySelector('#player2');
+const header       = document.querySelector('header'),
+      playButton   = document.querySelector('#play-button'),
+      inputPlayer1 = document.querySelector('#player1'),
+      inputPlayer2 = document.querySelector('#player2');
 
 // -> GAME HTML/ CLASSES :
 const Player1      = new Player(
@@ -105,15 +104,16 @@ const Player2      = new Player(
 const gameContainer = document.querySelector('#game-container');
 
 // -> GAME JS : 
-let player1Name     = '';
-let player2Name     = '';
+let player1Name, player2Name;
 const winnerScore   = 100;
 let currentScore    = 0;
-let currentDice     = 'fa-dice-five';
-let newDice;
-let canIRoll = true;
-let currentPlayer = Player1;
-let opponent = Player2; 
+let currentDice     = 'fa-dice-five', newDice;
+let canIRoll        = true;
+let currentPlayer   = Player1, opponent = Player2;
+
+// -> FOOTER : 
+const footer = document.querySelector('footer');
+const winnerScreen = document.querySelector('.winner-screen');
 
 
 // Fonctions : 
@@ -140,11 +140,11 @@ function gameBeginning(){
     
     gameContainer.addEventListener('click', e => {
 
-        const playAgainButton = gameContainer.querySelector('.play-again');
-        const rollButton      = gameContainer.querySelector('#roll');
-        const holdButton      = gameContainer.querySelector('#hold');
-        const diceContainer   = gameContainer.querySelector('#dice-container');
-        const dice            = diceContainer.querySelector('i');
+        const playAgainButton = gameContainer.querySelector('.play-again'),
+              rollButton      = gameContainer.querySelector('#roll'),
+              holdButton      = gameContainer.querySelector('#hold'),
+              diceContainer   = gameContainer.querySelector('#dice-container'),
+              dice            = diceContainer.querySelector('i');
         
         if (!canIRoll){
             return;
@@ -187,25 +187,31 @@ function animeDice(score, dice){
     dice.classList.replace(currentDice, newDice);
 }
 
-function starWinner(footer){
+function confetti(){
+    let confettis = 150;
     
-    const rotateX = 380/9;
-    let minX      = -200;
-    let minY      = 20;
-    let rotateY   = 80/5;
-
-
-
-
-    for (let i = 1; i < footer.children.length; i++){
-        document.documentElement.style.setProperty('--star-X'+ i, minX + 'px');
-        document.documentElement.style.setProperty('--star-Y'+ i, '-' + minY + 'px');
-        footer.children[i].classList.add('star-' + i );
-        minX += rotateX;
-        if (minY == 100){
-            minY -= rotateY;
-        } else {
-            minY += rotateY;
-        }
+    function random(min,max){
+        return Math.floor(Math.random() * (max - min) + min);   
     }
+
+    for (let x = 0; x < confettis; x++){
+        let windowHeight = window.innerHeight;
+        let windowWidth = window.innerWidth;
+        console.log(windowHeight)
+        let top = -(windowHeight/2);
+        let i = document.createElement('i');
+
+        i.classList.add('particle'+random(1,3));
+        i.style.top = top + 'px';
+        i.style.left = random(-(windowWidth/2), windowWidth)+'px';
+        i.style.width = random(15,18)+'px';
+        i.style.height = random(7,8)+'px';
+        i.style.animationDelay = random(0, 800) +'ms';
+
+        footer.appendChild(i);
+        setTimeout(() => {
+            footer.removeChild(i);
+        }, 3000)
+    }
+
 }

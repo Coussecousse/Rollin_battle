@@ -293,6 +293,34 @@ footer {
 .winner-screen > * {
     font-size: 1.2rem;
 }
+footer .play-again {
+    margin: 1rem 0;
+}
+.particle1, .particle2 {
+    opacity: 0;
+    position: absolute;
+    animation: confetti 2s ease-out;
+}
+.particle1 {
+    background-color: var(--color-500);
+}
+.particle2 {
+    background-color: var(--color-400);
+}
+@keyframes confetti {
+    0% {
+       opacity:0;
+    }
+    5%{
+        opacity: 1;
+    }
+    100% {
+       opacity:0;
+       transform:translateY(1000px) rotate(1440deg);
+    }
+ }
+
+
 .fa-star {
     opacity: 0;
     position: absolute;
@@ -300,6 +328,7 @@ footer {
     transform: translateX(-50%);
     transition: all .8s ease-out;
 }
+
 .star-1, .star-2, .star-3, .star-4, .star-5,
 .star-6, .star-7, .star-8, .star-9, .star-10 {
     opacity: 1;
