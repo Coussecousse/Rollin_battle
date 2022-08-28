@@ -89,6 +89,9 @@ class Player {
         footer.style.visibility = 'visible';
         winnerScreen.classList.add('active-winner-screen');
 
+        const winner = document.querySelector('#winner');
+        winner.textContent = this.name;
+
         confetti();
     };
 }
