@@ -140,6 +140,7 @@ main {
 /* GAME CONTAINER */
 #game-container {
     height: 45%;
+    background-color: var(--color-100);
 }
 #game-container::after {
     content: "";
@@ -390,9 +391,8 @@ main {
     font-size: 2rem;
 }
 .fa-arrow-up-long {
-    visibility: hidden;
     position: absolute;
-    font-size: 3rem;
+    font-size: clamp(1rem, 5vh, 3rem);
     color: var(--color-500);
     bottom: 15px;
     left: 50%;
@@ -404,7 +404,7 @@ main {
 }
 @keyframes arrowHold {
     to {
-        transform: translate(-50%,-40vh);
+        transform: translate(-50%,-40vw);
     }
 }
 #player1-container::after {
@@ -510,9 +510,6 @@ footer .play-again {
         -webkit-box-direction: normal;
             -ms-flex-direction: row;
                 flex-direction: row;
-    }
-    .fa-arrow-up-long {
-       visibility: visible; 
     }
     #game-container {
         height: 90%;
