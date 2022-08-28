@@ -15,6 +15,7 @@ class Player {
     }
     setDesignTour(Opponent){
         this.score.textContent  = '0';
+        opponent.score.textContent = '0';
         this.opacity(Opponent);
         this.hiddenTour(Opponent);
     }
@@ -55,12 +56,11 @@ class Player {
         } else {
             this.nextRound(Opponent);
         }
-
     }
     nextRound(Opponent){
         this.isHePlaying     = false;
         Opponent.isHePlaying = true;
-        currentScore = 0;
+        currentScore         = 0;
 
         this.setDesignTour(Opponent);
 
@@ -71,9 +71,8 @@ class Player {
         canIRoll = false;
         footer.style.visibility = 'visible';
         winnerScreen.classList.add('active-winner-screen');
-        
-        // starWinner(footer);
-        confetti()
+
+        confetti();
     };
 }
 
@@ -139,15 +138,18 @@ playButton.addEventListener('click', () => {
 function gameBeginning(){
     
     gameContainer.addEventListener('click', e => {
+        console.log('click');
 
-        const playAgainButton = gameContainer.querySelector('.play-again'),
-              rollButton      = gameContainer.querySelector('#roll'),
-              holdButton      = gameContainer.querySelector('#hold'),
-              diceContainer   = gameContainer.querySelector('#dice-container'),
-              dice            = diceContainer.querySelector('i');
-        
+        const playAgainButton       = gameContainer.querySelector('.play-again'),
+              rollButton            = gameContainer.querySelector('#roll'),
+              holdButton            = gameContainer.querySelector('#hold'),
+              diceContainer         = gameContainer.querySelector('#dice-container'),
+              dice                  = diceContainer.querySelector('i');
+      
         if (!canIRoll){
             return;
+        } else if (e.target == playAgainButton || e.target == playAgainButton.children[0]) {
+            playAgain();
         } else if (e.target == rollButton || e.target == rollButton.children[0]){
             currentPlayer.roll(diceContainer, dice, opponent);
         } else if (e.target == holdButton || e.target == holdButton.children[0]){
@@ -158,8 +160,17 @@ function gameBeginning(){
         } else {
             return;
         }
-    })
+    })   
 }
+footer.addEventListener('click', e => {
+
+    const playAgainButton = footer.querySelector('.play-again');
+
+    if (e.target == playAgainButton || e.target == playAgainButton.children[0]){
+        playAgain();
+        gameBeginning();
+    }
+})
 
 function animeDice(score, dice){
     switch (score){
@@ -185,6 +196,33 @@ function animeDice(score, dice){
             score = Math.floor(Math.random() * (7 - 1) + 1);
     }
     dice.classList.replace(currentDice, newDice);
+}
+function playAgain(){
+    const resetScore = player => {
+        player.score.textContent = '0'
+        player.globalScore = 0;
+        player.globalScoreElement.textContent = player.globalScore;
+    }
+    resetScore(Player1);
+    resetScore(Player2);
+    
+    if (footer.style.visibility == 'visible'){
+        footer.style.visibility = "hidden";
+        winnerScreen.classList.remove('active-winner-screen')
+    }
+    
+    currentPlayer = Player1;
+    opponent      = Player2;
+    
+    Player1.isHePlaying = true;
+    Player2.isHePlaying = false;
+
+    canIRoll     = true;
+    currentScore = 0;
+    
+    // On inverse pour remettre la bonne opacity à tout le monde
+    opponent.setDesignTour(currentPlayer);
+    
 }
 
 function confetti(){
