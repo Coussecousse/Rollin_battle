@@ -157,26 +157,28 @@ main {
 #roll {
     animation: click 3s linear infinite;
 }
+@keyframes click {
+    20% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    30%{
+        transform: scale(1);
+    }
+    35%{
+        transform: scale(1.1);
+    }
+    40%{
+        transform: scale(1);
+    }
+}
 .fa-question {
     opacity: 0;
     padding-left: .2rem;
     padding-right: 0;
     animation: question 3.5s linear infinite;
-}
-#dice-container {
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-}
-.dice-animate {
-    animation: spin .6s ease-in-out;
-}
-@keyframes spin {
-    from {
-        transform: rotate(0);
-    }
-    to {
-        transform: rotate(-360deg) rotateX(-360deg);
-    }
 }
 
 @keyframes question {
@@ -207,21 +209,36 @@ main {
         opacity: 0;
     }
 }
-@keyframes click {
-    20% {
-        transform: scale(1);
+#dice-container {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+.dice-animate {
+    animation: spin .6s ease-in-out;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0);
     }
-    25% {
-        transform: scale(1.1);
+    to {
+        transform: rotate(-360deg) rotateX(-360deg);
     }
-    30%{
-        transform: scale(1);
+}
+.dice-one {
+    animation: leftRight .2s linear;
+}
+@keyframes leftRight {
+    0% {
+        transform: translateX(0);
     }
-    35%{
-        transform: scale(1.1);
+    33% {
+        transform: translateX(15px);
     }
-    40%{
-        transform: scale(1);
+    66% {
+        transform: translateX(-15px);
+    }
+    100% {
+        transform: translateX(0);
     }
 }
 /* PLAYER CONTAINER */
@@ -319,51 +336,6 @@ footer .play-again {
        transform:translateY(1000px) rotate(1440deg);
     }
  }
-
-
-.fa-star {
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateX(-50%);
-    transition: all .8s ease-out;
-}
-
-.star-1, .star-2, .star-3, .star-4, .star-5,
-.star-6, .star-7, .star-8, .star-9, .star-10 {
-    opacity: 1;
-}
-.star-1 {
-    transform: translate(var(--star-X1), var(--star-Y1));
-}
-.star-2 {
-    transform: translate(var(--star-X2), var(--star-Y2));
-}
-.star-3 {
-    transform: translate(var(--star-X3), var(--star-Y3));
-}
-.star-4 {
-    transform: translate(var(--star-X4), var(--star-Y4));
-}
-.star-5 {
-    transform: translate(var(--star-X5), var(--star-Y5));
-}
-.star-6 {
-    transform: translate(var(--star-X6), var(--star-Y6));
-}
-.star-7 {
-    transform: translate(var(--star-X7), var(--star-Y7));
-}
-.star-8 {
-    transform: translate(var(--star-X8), var(--star-Y8));
-}
-.star-9 {
-    transform: translate(var(--star-X9), var(--star-Y9));
-}
-.star-10 {
-    transform: translate(var(--star-X10), var(--star-Y10));
-}
-
 
 @media screen and (min-width: 768px){
     main {

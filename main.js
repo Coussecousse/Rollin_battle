@@ -1,21 +1,24 @@
 // Variables 
 // -> Classes : 
 class Player {
-    constructor(container, name, tour, score, globalScoreElement, isHePlaying){
+    constructor(container, name, tour, score, scoreContainer, globalScoreElement, isHePlaying){
         this.container          = container;
         this.name               = name;
         this.tour               = tour;
         this.score              = score;
+        this.scoreContainer     = scoreContainer
         this.globalScoreElement = globalScoreElement
-        this.globalScore        = 90;
+        this.globalScore        = 0;
         this.isHePlaying        = isHePlaying
     }
     changeName(setName){
         this.name.textContent   = setName;
     }
     setDesignTour(Opponent){
-        this.score.textContent  = '0';
+        this.score.textContent  = '0'; 
+        opponent.scoreContainer.style.backgroundColor = 'var(--color-500)';
         opponent.score.textContent = '0';
+
         this.opacity(Opponent);
         this.hiddenTour(Opponent);
     }
@@ -33,9 +36,16 @@ class Player {
             diceContainer.classList.remove('dice-animate');
             currentDice        = newDice;
             if (newScore == 1){
-                this.nextRound(Opponent);
+                this.scoreContainer.style.backgroundColor = '#C21010';
+                dice.classList.add('dice-one');
+                setTimeout(() => {
+                    dice.classList.remove('dice-one');
+                    this.nextRound(Opponent);
+                    canIRoll       = true;
+                }, 300);
+            } else {
+                canIRoll           = true;
             }
-            canIRoll           = true;
         }, 600)
 
     }
@@ -49,9 +59,9 @@ class Player {
     }
     hold(Opponent){
         this.globalScore                   += currentScore;
-        this.globalScoreElement.textContent = this.globalScore;
 
         if (this.globalScore >= winnerScore){
+            this.globalScoreElement.textContent = 100;
             this.weHaveAWinner();
         } else {
             this.nextRound(Opponent);
@@ -88,6 +98,7 @@ const Player1      = new Player(
     document.querySelector('#player-name1'), 
     document.querySelector('#tour-p1'),
     document.querySelector('#p1-score'), 
+    document.querySelector('#score-container-p1'),
     document.querySelector('#p1-global'), 
     true
 );
@@ -96,6 +107,7 @@ const Player2      = new Player(
     document.querySelector('#player-name2'),
     document.querySelector('#tour-p2'),
     document.querySelector('#p2-score'),
+    document.querySelector('#score-container-p2'),
     document.querySelector('#p2-global'),
     false
 )
@@ -168,7 +180,6 @@ footer.addEventListener('click', e => {
 
     if (e.target == playAgainButton || e.target == playAgainButton.children[0]){
         playAgain();
-        gameBeginning();
     }
 })
 
@@ -195,12 +206,17 @@ function animeDice(score, dice){
         default :
             score = Math.floor(Math.random() * (7 - 1) + 1);
     }
+    if (newDice == 'fa-dice-one'){
+        dice.style.color = '#C21010';
+    } else {
+        dice.style.color = 'var(--color-500)';
+    }
     dice.classList.replace(currentDice, newDice);
 }
 function playAgain(){
     const resetScore = player => {
         player.score.textContent = '0'
-        player.globalScore = 0;
+        player.globalScore       = 0;
         player.globalScoreElement.textContent = player.globalScore;
     }
     resetScore(Player1);

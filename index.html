@@ -15,7 +15,7 @@
     <header class="col-12">
         <div class="header__container col-12 col-md-8 col-lg-6 d-flex flex-column justify-content-center">
             <h2>Bienvenue sur <span>Roll</span>in' Battle</h2>
-            <p>La partie se joue en <span>1 contre 1</span>. Le but est de lancer les dés et d'atteindre le score <span>GLOBAL</span> de <span>100</span> le premier. <br>À chaque tour, vous obtenez un <span>SCORE</span> de dés que vous pouvez décider de <span>ROLL</span> à nouveau autant de fois que vous voulez, ou de <span>HOLD</span>. Dans ce cas là, le <span>SCORE</span> sera alors ajouté à votre score <span>GLOBAL</span>. <br> Mais attention ! Si votre dé tombe sur <span>1</span>, votre tour se finit et ce sera à votre adversaire de jouer.</p>
+            <p>La partie se joue en <span>1 contre 1</span>. Le but est de lancer les dés et d'atteindre le score <span>GLOBAL</span> de <span>100</span> le premier. <br>À chaque tour, vous devez <span>ROLL</span> les dés et vous obtenez des <span>POINTS</span>. Si vous décidez de <span>ROLL</span> à nouveau, les <span>POINTS</span> vont s'additionner et à tout moment vous pouvez décider de <span>HOLD</span> pour les ajouter à votre score <span>GLOBAL</span>. <br> Mais attention ! À chaque <span>ROLL</span> votre dé a une chance de tomber sur <span>1</span> et dans ce cas-là, votre tour se finira et ce sera à votre adversaire de jouer.</p>
             <div class="name-container col-12 d-flex flex-wrap">
                 <div class="col-12 col-md-6 player-name">
                     <label for="player1">Nom du <span>premier joueur </span>:</label>
@@ -46,7 +46,7 @@
                 <p class="global" id="p1-global">0</p>
             </div>
             <div id="score-container-p1" class="score-container">
-                <p>Score :</p>
+                <p>Point(s) :</p>
                 <p class="score" id="p1-score">0</p>
             </div>
         </section>
@@ -57,7 +57,7 @@
                 <p class="global" id="p2-global">0</p>
             </div>
             <div id="score-container-p2" class="score-container">
-                <p>Score :</p>
+                <p>Point(s) :</p>
                 <p class="score" id="p2-score">0</p>
             </div>
         </section>
@@ -68,7 +68,6 @@
             <p>a gagné !</p>
             <button type="button"class="action-button d-flex align-items-center justify-content-center play-again"><i class="fa-solid fa-dice"></i>Rejouer</button>
         </div>
-
     </footer>
     <script src="./bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/4ba6d56c15.js" crossorigin="anonymous"></script>
