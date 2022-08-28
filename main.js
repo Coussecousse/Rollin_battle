@@ -1,7 +1,7 @@
 // Variables 
 // -> Classes : 
 class Player {
-    constructor(container, name, tour, score, scoreContainer, globalScoreElement, isHePlaying){
+    constructor(container, name, tour, score, scoreContainer, globalScoreElement, arrow, isHePlaying){
         this.container          = container;
         this.name               = name;
         this.tour               = tour;
@@ -9,6 +9,7 @@ class Player {
         this.scoreContainer     = scoreContainer
         this.globalScoreElement = globalScoreElement
         this.globalScore        = 0;
+        this.arrow              = arrow;
         this.isHePlaying        = isHePlaying
     }
     changeName(setName){
@@ -59,14 +60,19 @@ class Player {
     }
     hold(Opponent){
         this.globalScore                   += currentScore;
+        
+        this.arrow.classList.add('arrow-animate')
 
-        if (this.globalScore >= winnerScore){
-            this.globalScoreElement.textContent = 100;
-            this.weHaveAWinner();
-        } else {
-            this.globalScoreElement.textContent = currentScore;
-            this.nextRound(Opponent);
-        }
+        setTimeout(() => {
+            if (this.globalScore >= winnerScore){
+                this.globalScoreElement.textContent = 100;
+                this.weHaveAWinner();
+            } else {
+                this.globalScoreElement.textContent = currentScore;
+                this.nextRound(Opponent);
+                this.arrow.classList.remove('arrow-animate');
+            }
+        }, 520)
     }
     nextRound(Opponent){
         this.isHePlaying     = false;
@@ -101,6 +107,7 @@ const Player1      = new Player(
     document.querySelector('#p1-score'), 
     document.querySelector('#score-container-p1'),
     document.querySelector('#p1-global'), 
+    document.querySelector('#arrow-p1'),
     true
 );
 const Player2      = new Player(
@@ -110,6 +117,7 @@ const Player2      = new Player(
     document.querySelector('#p2-score'),
     document.querySelector('#score-container-p2'),
     document.querySelector('#p2-global'),
+    document.querySelector('#arrow-p2'),
     false
 )
 

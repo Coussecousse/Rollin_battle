@@ -41,10 +41,10 @@ h1 > span {
     font-size: 3rem;
 }
 h2 {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 5vw, 2rem);
 } 
 h2 > span {
-    font-size: 2.2rem;
+    font-size: 2rem;
 }
 h3 {
     font-size: clamp(1.5rem, 3vw, 2.5rem);
@@ -91,12 +91,11 @@ header {
 .header__container {
     margin: 0 auto;
     height: 100%;
-    gap: 1.5rem;
+    gap: clamp(.5rem, 2vh, 1.5rem);
     line-height: 1.325rem;
 }
-
 .name-container > * {
-    margin: 10px 0;
+    margin: 5px 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -106,7 +105,7 @@ header {
             flex-direction: column;
 }
 input {
-    margin: 10px auto;
+    margin: 5px auto 0 auto;
     height: 40px;
     width: 90%;
     max-width: 300px;
@@ -373,9 +372,11 @@ main {
     position: relative;
 }
 .global {
-    margin-top: 1rem;
     color: var(--color-400);
     font-size: clamp(3rem, 13vw, 5rem);
+}
+.global-container {
+    background-color: var(--color-100);
 }
 .score-container {
     width: clamp(100px, 30vw, 150px);
@@ -388,7 +389,24 @@ main {
     margin-top: .5rem;
     font-size: 2rem;
 }
-
+.fa-arrow-up-long {
+    visibility: hidden;
+    position: absolute;
+    font-size: 3rem;
+    color: var(--color-500);
+    bottom: 15px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: -1;
+}
+.arrow-animate {
+    animation: arrowHold .5s ease-in;
+}
+@keyframes arrowHold {
+    to {
+        transform: translate(-50%,-40vh);
+    }
+}
 #player1-container::after {
     content: "";
     position: absolute;
@@ -492,6 +510,9 @@ footer .play-again {
         -webkit-box-direction: normal;
             -ms-flex-direction: row;
                 flex-direction: row;
+    }
+    .fa-arrow-up-long {
+       visibility: visible; 
     }
     #game-container {
         height: 90%
