@@ -64,6 +64,7 @@ class Player {
             this.globalScoreElement.textContent = 100;
             this.weHaveAWinner();
         } else {
+            this.globalScoreElement.textContent = currentScore;
             this.nextRound(Opponent);
         }
     }
