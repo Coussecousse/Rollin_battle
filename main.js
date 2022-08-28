@@ -90,7 +90,7 @@ class Player {
         winnerScreen.classList.add('active-winner-screen');
 
         const winner = document.querySelector('#winner');
-        winner.textContent = this.name;
+        winner.textContent = this.name.textContent;
 
         confetti();
     };
