@@ -32,15 +32,15 @@
     </header>
     <main class="d-flex flex-wrap">
         <h1 class="col-12"><span>Roll</span>in' Battle</h1>
-        <section id="game-container" class="col-12 col-md-4 d-flex flex-column justify-content-between order-md-2 order-1">
+        <div id="game-container" class="col-12 col-md-4 d-flex flex-column justify-content-between order-md-2 order-1">
             <button type="button" class="action-button d-flex align-items-center justify-content-center play-again"><i class="fa-solid fa-dice"></i>Rejouer</button>
             <div id="dice-container" class=""><i class="fa-solid fa-dice-five"></i></div>
             <div class="options d-flex flex-md-column flex-lg-row">
-                <button type="button" class="action-button col-5 d-flex align-items-center justify-content-center justify-content-md-start justify-content-lg-center" id="roll"><i class="fa-solid fa-rotate"></i></i>ROLL</button>
+                <button type="button" class="action-button col-5 d-flex align-items-center justify-content-center justify-content-md-start justify-content-lg-center" id="roll"><i class="fa-solid fa-rotate"></i>ROLL</button>
                 <button type="button" class="action-button col-5 d-flex align-items-center justify-content-center justify-content-md-start justify-content-lg-center" id="hold"><i class="fa-solid fa-hand-holding-hand"></i>HOLD<i class="fa-solid fa-question"></i></button>
             </div>
-        </section>
-        <section id="player1-container" class="player-container col-6 col-md-4 order-md-1 order-2 d-flex flex-column justify-content-between">
+        </div>
+        <div id="player1-container" class="player-container col-6 col-md-4 order-md-1 order-2 d-flex flex-column justify-content-between">
             <i class="fa-solid fa-arrow-up-long" id="arrow-p1"></i>
             <div id="global-container-p1" class="global-container">
                 <p class="tour" id="tour-p1">Au tour de...</p>
@@ -51,8 +51,8 @@
                 <p>Point(s) :</p>
                 <p class="score" id="p1-score">0</p>
             </div>
-        </section>
-        <section id="player2-container" class="player-container col-6 col-md-4 order-md-3 order-3 d-flex flex-column justify-content-between">
+        </div>
+        <div id="player2-container" class="player-container col-6 col-md-4 order-md-3 order-3 d-flex flex-column justify-content-between">
             <i class="fa-solid fa-arrow-up-long" id="arrow-p2"></i>
             <div id="global-container-p2" class="global-container">
                 <p class="tour" id="tour-p2">Au tour de...</p>
@@ -63,13 +63,13 @@
                 <p>Point(s) :</p>
                 <p class="score" id="p2-score">0</p>
             </div>
-        </section>
+        </div>
     </main>
     <footer>
         <div class="winner-screen d-flex flex-column justify-content-center ">
             <p id="winner"><span>Joueur 1</span></p>
             <p>a gagné !</p>
-            <button type="button"class="action-button d-flex align-items-center justify-content-center play-again"><i class="fa-solid fa-dice"></i>Rejouer</button>
+            <button type="button" class="action-button d-flex align-items-center justify-content-center play-again"><i class="fa-solid fa-dice"></i>Rejouer</button>
         </div>
     </footer>
     <script src="./bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
