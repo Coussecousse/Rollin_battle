@@ -219,6 +219,7 @@ function playAgain(){
         player.score.textContent = '0'
         player.globalScore       = 0;
         player.globalScoreElement.textContent = player.globalScore;
+        player.scoreContainer.style.backgroundColor = 'var(--color-500)';
     }
     resetScore(Player1);
     resetScore(Player2);
