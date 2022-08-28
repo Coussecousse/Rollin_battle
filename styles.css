@@ -515,7 +515,7 @@ footer .play-again {
        visibility: visible; 
     }
     #game-container {
-        height: 90%
+        height: 90%;
     }
     #game-container::after {
         height: 0px;

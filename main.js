@@ -60,15 +60,15 @@ class Player {
     }
     hold(Opponent){
         this.globalScore                   += currentScore;
-        
-        this.arrow.classList.add('arrow-animate')
+
+        this.arrow.classList.add('arrow-animate');
 
         setTimeout(() => {
             if (this.globalScore >= winnerScore){
                 this.globalScoreElement.textContent = 100;
                 this.weHaveAWinner();
             } else {
-                this.globalScoreElement.textContent = currentScore;
+                this.globalScoreElement.textContent = this.globalScore;
                 this.nextRound(Opponent);
                 this.arrow.classList.remove('arrow-animate');
             }
