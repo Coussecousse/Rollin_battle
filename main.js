@@ -159,7 +159,6 @@ playButton.addEventListener('click', () => {
 function gameBeginning(){
     
     gameContainer.addEventListener('click', e => {
-        console.log('click');
 
         const playAgainButton       = gameContainer.querySelector('.play-again'),
               rollButton            = gameContainer.querySelector('#roll'),
@@ -261,7 +260,6 @@ function confetti(){
     for (let x = 0; x < confettis; x++){
         let windowHeight = window.innerHeight;
         let windowWidth = window.innerWidth;
-        console.log(windowHeight)
         let top = -(windowHeight/2);
         let i = document.createElement('i');
 
